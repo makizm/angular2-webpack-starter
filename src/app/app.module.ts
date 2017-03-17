@@ -24,13 +24,19 @@ import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
-import { HomeComponent } from './home';
-import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
-import { XLargeDirective } from './home/x-large';
+
+import { DashComponent } from './dash';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
+// import '!style-loader!css-loader!bootstrap/dist/css/bootstrap.css';
+import 'metro-ui/build/js/metro.min.js';
+import '!style-loader!css-loader!metro-ui/build/css/metro.min.css';
+import '!style-loader!css-loader!metro-ui/build/css/metro-schemes.min.css';
+import '!style-loader!css-loader!metro-ui/build/css/metro-rtl.min.css';
+import '!style-loader!css-loader!metro-ui/build/css/metro-responsive.min.css';
+import '!style-loader!css-loader!metro-ui/build/css/metro-icons.min.css';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -51,10 +57,8 @@ type StoreType = {
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
-    AboutComponent,
-    HomeComponent,
     NoContentComponent,
-    XLargeDirective
+    DashComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,
