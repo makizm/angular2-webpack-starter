@@ -20,7 +20,11 @@ import { AppState } from './app.service';
   ],
   template: `
     <main>
-      <router-outlet></router-outlet>
+      <div class="tile-area no-padding">
+        <div class="tile-container bg-darkCobalt">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
     </main>
   `
 })
