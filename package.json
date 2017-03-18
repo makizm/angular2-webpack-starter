@@ -85,6 +85,8 @@
     "ie-shim": "^0.1.0",
     "jasmine-core": "^2.5.2",
     "jquery": "^3.2.0",
+    "metro-ui": "^3.0.15",
+    "node-sass": "^4.5.0",
     "reflect-metadata": "^0.1.9",
     "rxjs": "5.0.2",
     "zone.js": "0.7.6"
