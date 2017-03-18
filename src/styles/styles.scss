@@ -2,10 +2,12 @@
 /* This file is for setting global styles  */
 @import 'variables';
 
-tile-area {
-  height: 100vh;
+.tile-area {
+  height: 100vh !important;
+  max-height: 1024px;
+  max-width: 1024px;
 }
 
-tile-container {
-  height: 100%;
+.tile-container {
+  height: 100% !important;
 }
