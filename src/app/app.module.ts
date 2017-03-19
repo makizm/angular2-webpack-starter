@@ -15,6 +15,8 @@ import {
   PreloadAllModules
 } from '@angular/router';
 
+import { OAuthService } from 'angular2-oauth2/oauth-service';
+
 /*
  * Platform and Environment providers/directives/pipes
  */
@@ -27,6 +29,7 @@ import { AppState, InternalStateType } from './app.service';
 import { NoContentComponent } from './no-content';
 
 import { DashComponent } from './dash';
+import { AuthComponent } from './+auth';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
@@ -58,7 +61,8 @@ type StoreType = {
   declarations: [
     AppComponent,
     NoContentComponent,
-    DashComponent
+    DashComponent,
+    AuthComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,
@@ -68,7 +72,8 @@ type StoreType = {
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    OAuthService
   ]
 })
 export class AppModule {
