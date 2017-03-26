@@ -8,6 +8,10 @@ import {
 } from '@angular/core';
 import { AppState } from './app.service';
 
+import { Router } from '@angular/router';
+
+import { BaThemeSpinner, BaThemePreloader } from './shared/services';
+
 /*
  * App Component
  * Top Level Component
@@ -22,6 +26,7 @@ import { AppState } from './app.service';
     <main>
       <div class="tile-area no-padding">
         <div class="tile-container bg-darkCobalt">
+          <clock-widget></clock-widget>
           <router-outlet></router-outlet>
         </div>
       </div>
@@ -34,11 +39,19 @@ export class AppComponent implements OnInit {
   public url = 'https://twitter.com/AngularClass';
 
   constructor(
-    public appState: AppState
+    public appState: AppState,
+    private _spinner: BaThemeSpinner
   ) {}
 
   public ngOnInit() {
     console.log('Initial App State', this.appState.state);
+  }
+
+  public ngAfterViewInit(): void {
+    // hide spinner once all loaders are completed
+    BaThemePreloader.load().then((values) => {
+      this._spinner.hide();
+    });
   }
 
 }

@@ -15,11 +15,14 @@ import {
   PreloadAllModules
 } from '@angular/router';
 
-import { OAuthService } from 'angular2-oauth2/oauth-service';
-
 /*
  * Platform and Environment providers/directives/pipes
  */
+
+import { NgaModule } from './shared/nga-module';
+
+// import { BaThemePreloader, BaThemeSpinner, SmartApp, mCharm } from './shared/services';
+
 import { ENV_PROVIDERS } from './environment';
 import { ROUTES } from './app.routes';
 // App is our top level component
@@ -29,10 +32,13 @@ import { AppState, InternalStateType } from './app.service';
 import { NoContentComponent } from './no-content';
 
 import { DashComponent } from './dash';
-import { AuthComponent } from './+auth';
+import { LoginComponent } from './+login';
+import { ErrorComponent } from './+error';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
+import '../styles/preloader.scss';
+import '../styles/charm.scss';
 // import '!style-loader!css-loader!bootstrap/dist/css/bootstrap.css';
 import 'metro-ui/build/js/metro.min.js';
 import '!style-loader!css-loader!metro-ui/build/css/metro.min.css';
@@ -62,18 +68,19 @@ type StoreType = {
     AppComponent,
     NoContentComponent,
     DashComponent,
-    AuthComponent
+    LoginComponent,
+    ErrorComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,
     FormsModule,
     HttpModule,
+    NgaModule.forRoot(),
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
-    APP_PROVIDERS,
-    OAuthService
+    APP_PROVIDERS
   ]
 })
 export class AppModule {
