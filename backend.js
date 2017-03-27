@@ -23,7 +23,7 @@ const DASH_SERVER = 'localhost:3000';
 
 // Set SmartApp settings
 const CLIENT_ID = '865923f9-f22a-45e2-8108-ba95e4336617';       // deprecate, provided by client
-const CLIENT_SECRET = '';   // deprecate, provided by client
+const CLIENT_SECRET = '3ed2dbcc-86b5-41fc-b642-e29c97c2669b';   // deprecate, provided by client
 const SAPP_REDIRECT_URL = 'http://localhost:3001/auth/callback';
 const SAPP_REST_SERVER = 'graph.api.smartthings.com';
 const SAPP_BASE_URL = 'https://graph.api.smartthings.com';
