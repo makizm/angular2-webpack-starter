@@ -1,3 +1,5 @@
+<clock-widget></clock-widget>
+
 <div *ngFor="let switch of switches" class="tile-square dash-switch fg-white" 
     [ngClass]="{'dash-device-online': switch.status == 'ONLINE', 'dash-device-offline': switch.status == 'OFFLINE'}"
     (click)="toggleSwitch(switch)" data-role="tile">
@@ -13,8 +15,8 @@
     [ngClass]="{'dash-sensor-online': msensor.status == 'ONLINE', 'dash-sensor-offline': msensor.status == 'OFFLINE'}"
     data-role="tile">
     <div class="tile-content iconic">
-        <span class="icon mif-warning"
-            [ngClass]="{'mif-lock': msensor.value == 'closed', 'mif-unlock': msensor.value == 'open'}"></span>
+        <span class="icon "
+            [ngClass]="getIcon(msensor)"></span>
         <span class="tile-label">{{msensor.label}}</span>
         <span *ngIf="msensor.battery" class="icon no-margin dash-battery" [ngClass]="getBattClass(msensor)"></span>
     </div>

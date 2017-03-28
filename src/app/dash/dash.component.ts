@@ -73,8 +73,17 @@ export class DashComponent implements OnInit {
     }
 
     public getIcon(item) {
-        if(item) switch(item) {
-
+        if(item.type == 'sensor') switch(item.value) {
+            case 'closed':
+                return 'mif-lock';
+            case 'open':
+                return 'mif-unlock fg-red';
+            case 'garage-closed':
+                return 'mif-lock';
+            case 'garage-open':
+                return 'mif-unlock fg-red';
+            default:
+                return 'mif-warning fg-red';
         }
     }
 }

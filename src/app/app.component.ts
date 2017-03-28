@@ -26,7 +26,6 @@ import { BaThemeSpinner, BaThemePreloader } from './shared/services';
     <main>
       <div class="tile-area no-padding">
         <div class="tile-container bg-darkCobalt">
-          <clock-widget></clock-widget>
           <router-outlet></router-outlet>
         </div>
       </div>
