@@ -135,12 +135,6 @@ var smartAppGet = function (req, res, next) {
   // Close session
   rest.end();
 }
-
-// Proxy api
-app.get('/api/:url', smartAppGet);
-app.get('/api', function(req, res) {
-  res.send({ message: 'Welcome to SmartApp API Proxy'});
-});
  
 // Initial page redirecting to SmartThings auth page to get code
 app.get('/auth', function (req, res) {
@@ -235,6 +229,12 @@ app.get('/auth/callback', function (req, res) {
 
     }
   } // saveToken
+});
+
+// Proxy api
+app.get('/api/:url', smartAppGet);
+app.get('/api', function(req, res) {
+  res.send({ message: 'Welcome to SmartApp API Proxy'});
 });
 
 app.use('/', proxy(DASH_SERVER));
