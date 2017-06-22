@@ -4,7 +4,7 @@ import {Observable} from 'rxjs/Rx';
 import { IntervalObservable } from 'rxjs/observable/IntervalObservable';
 import { mWeatherProvider } from '../../services';
 
-const CHECK_WEATHER_INTERVAL = 30;  // in minutes
+const CHECK_WEATHER_INTERVAL = 5;  // in minutes
 
 @Component({
     selector: 'weather-widget',
@@ -30,7 +30,7 @@ export class mWeatherComponent implements OnInit {
         this.city = this._weather.city;
         this._getWeather();
         //this._weather.getByCity().then(this.getWeather);
-        IntervalObservable.create(CHECK_WEATHER_INTERVAL * 100).subscribe(data=> {
+        IntervalObservable.create(CHECK_WEATHER_INTERVAL * 60000).subscribe(data=> {
             console.log('check');
             this._getWeather();
         });
