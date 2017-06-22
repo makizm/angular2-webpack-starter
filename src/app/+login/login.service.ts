@@ -14,7 +14,7 @@ const URL_REDIRECT = 'http://www.leychenko.com';
 @Injectable()
 export class LoginProvider {
 
-    public authUrl:string = '/auth';
+    public authUrl:string = '/api/auth';
 
     constructor() {}
 }
