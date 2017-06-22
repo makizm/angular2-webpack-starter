@@ -1,5 +1,7 @@
 <clock-widget></clock-widget>
 
+<weather-widget></weather-widget>
+
 <div *ngFor="let switch of switches" class="tile-square dash-switch fg-white" 
     [ngClass]="{'dash-device-online': switch.status == 'ONLINE', 'dash-device-offline': switch.status == 'OFFLINE'}"
     (click)="toggleSwitch(switch)" data-role="tile">

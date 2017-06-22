@@ -1,0 +1,12 @@
+<aside class="dash-widget-weather">
+    <div class="tile-wide bg-teal fg-white" data-role="tile">
+        <div class="tile-content iconic">
+            <span class="tile-label">Weather {{ city }}</span>
+            <span #temp class="dash-weather dash-weather-temp" >{{ temperature | number:'1.0-0' }}</span>
+            <span class="dash-weather dash-weather-minmax">{{ tempMax | number:'1.0-0' }} / {{ tempMin | number:'1.0-0' }}</span>
+            <span class="dash-weather dash-weather-m mif-fahrenheit"></span>
+            <span class="dash-weather dash-weather-t mif-thermometer2"></span>
+            <span #icon class="dash-weather dash-weather-icon" [ngClass]="iconClass"></span>
+        </div>
+    </div>
+</aside>

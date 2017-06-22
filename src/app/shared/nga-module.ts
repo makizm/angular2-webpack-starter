@@ -10,7 +10,8 @@ import { CookieService } from 'angular2-cookie/core';
  * Components
  */
 import { 
-    mClockComponent
+    mClockComponent,
+    mWeatherComponent
 } from './components';
 
 /*
@@ -20,17 +21,20 @@ import {
     BaThemePreloader,
     BaThemeSpinner,
     SmartApp,
+    mWeatherProvider
  } from './services';
 
 const NGA_COMPONENTS = [
-    mClockComponent
+    mClockComponent,
+    mWeatherComponent
 ]
 
 const NGA_SERVICES = [
     CookieService,
     BaThemePreloader,
     BaThemeSpinner,
-    SmartApp
+    SmartApp,
+    mWeatherProvider
 ]
 
 @NgModule({
