@@ -245,4 +245,5 @@ app.use('/', proxy(DASH_SERVER));
 
 app.listen(SRV_PORT);
 
-console.log('Express server started on port ' + DASH_SERVER);
+console.log('Root requests will be proxied to http://' + DASH_SERVER);
+console.log('Backend server started http://localhost:' + SRV_PORT + '/api');
