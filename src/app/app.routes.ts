@@ -5,8 +5,6 @@ import { NoContentComponent } from './no-content';
 import { LoginComponent } from './+login';
 import { ErrorComponent } from './+error';
 
-import { DataResolver } from './app.resolver';
-
 export const ROUTES: Routes = [
   { path: '',      component: DashComponent },
   { path: 'error', component: ErrorComponent },
