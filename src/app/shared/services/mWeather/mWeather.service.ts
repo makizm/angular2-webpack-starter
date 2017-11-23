@@ -33,10 +33,10 @@ export class mWeatherProvider {
     }
 
     public test(city:string = this._city): Observable<any> {
-        var headers = new Headers();
-        headers.append('Content-Type', 'application/json; charset=utf-8');
+        //var headers = new Headers();
+        //headers.append('Content-Type', 'application/json; charset=utf-8');
         return this._http.get(WEATHER_BASE_URI + `/weather?q=${city}
-            &units=${WEATHER_TEMP_UNITS}&APPID=${WEATHER_APPID}`, headers);
+            &units=${WEATHER_TEMP_UNITS}&APPID=${WEATHER_APPID}`);
     }
 
     private _extractData(res: Response) {

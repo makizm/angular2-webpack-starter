@@ -19,7 +19,8 @@ export class DashComponent implements OnInit {
     private multiSensors = [];      // Multipurpose Sensors
     private presSensors = [];       // Presense Sensors
 
-    constructor(private _cookieService: CookieService,
+    constructor(
+                //private _cookieService: CookieService,
                 private _router: Router,
                 private _smartApp: SmartApp){}
 

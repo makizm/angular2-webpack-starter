@@ -14,19 +14,20 @@ export class SmartApp {
     private url:string;
     private key:string;
 
-    constructor(private _cookieService: CookieService,
+    constructor(
+                //private _cookieService: CookieService,
                 private _router: Router,
                 private _http: Http) {
         // Check for cookie
-        if(!this._cookieService.get(this.cookieName)) {
-            // Redirect to login page when no token cookie present
-            this._router.navigate(['/error', {id: 201}]);
-        } else {
-            // Get token cookie and decode it
-            let data = atob(this._cookieService.get(this.cookieName));
-            // Parse token data into key and url
-            [ this.key, this.url ] = data.split(';');
-        }
+        // if(!this._cookieService.get(this.cookieName)) {
+        //     // Redirect to login page when no token cookie present
+        //     this._router.navigate(['/error', {id: 201}]);
+        // } else {
+        //     // Get token cookie and decode it
+        //     let data = atob(this._cookieService.get(this.cookieName));
+        //     // Parse token data into key and url
+        //     [ this.key, this.url ] = data.split(';');
+        // }
     }
 
     public testGet() {
