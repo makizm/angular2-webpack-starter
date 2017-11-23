@@ -1,0 +1,106 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { RouterModule, PreloadAllModules } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+/*
+ * Platform and Environment providers/directives/pipes
+ */
+<<<<<<< HEAD
+
+import { NgaModule } from './shared/nga-module';
+
+// import { BaThemePreloader, BaThemeSpinner, SmartApp, mCharm } from './shared/services';
+
+import { ENV_PROVIDERS } from './environment';
+=======
+import { environment } from 'environments/environment';
+>>>>>>> upstream/master
+import { ROUTES } from './app.routes';
+// App is our top level component
+import { AppComponent } from './app.component';
+import { APP_RESOLVER_PROVIDERS } from './app.resolver';
+import { AppState, InternalStateType } from './app.service';
+import { NoContentComponent } from './no-content';
+<<<<<<< HEAD
+
+import { DashComponent } from './dash';
+import { LoginComponent } from './+login';
+import { ErrorComponent } from './+error';
+=======
+import { XLargeDirective } from './home/x-large';
+import { DevModuleModule } from './+dev-module';
+>>>>>>> upstream/master
+
+import '../styles/styles.scss';
+import '../styles/headings.css';
+import '../styles/preloader.scss';
+import '../styles/charm.scss';
+// import '!style-loader!css-loader!bootstrap/dist/css/bootstrap.css';
+import 'metro-ui/build/js/metro.min.js';
+import '!style-loader!css-loader!metro-ui/build/css/metro.min.css';
+import '!style-loader!css-loader!metro-ui/build/css/metro-schemes.min.css';
+import '!style-loader!css-loader!metro-ui/build/css/metro-rtl.min.css';
+import '!style-loader!css-loader!metro-ui/build/css/metro-responsive.min.css';
+import '!style-loader!css-loader!metro-ui/build/css/metro-icons.min.css';
+
+// Application wide providers
+const APP_PROVIDERS = [
+  ...APP_RESOLVER_PROVIDERS,
+  AppState
+];
+
+type StoreType = {
+  state: InternalStateType,
+  restoreInputValues: () => void,
+  disposeOldHosts: () => void
+};
+
+/**
+ * `AppModule` is the main entry point into Angular2's bootstraping process
+ */
+@NgModule({
+  bootstrap: [ AppComponent ],
+  declarations: [
+    AppComponent,
+    NoContentComponent,
+    DashComponent,
+    LoginComponent,
+    ErrorComponent
+  ],
+  /**
+   * Import Angular's modules.
+   */
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpModule,
+<<<<<<< HEAD
+    NgaModule.forRoot(),
+    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
+=======
+    RouterModule.forRoot(ROUTES, {
+      useHash: Boolean(history.pushState) === false,
+      preloadingStrategy: PreloadAllModules
+    }),
+
+    /**
+     * This section will import the `DevModuleModule` only in certain build types.
+     * When the module is not imported it will get tree shaked.
+     * This is a simple example, a big app should probably implement some logic
+     */
+    ...environment.showDevModule ? [ DevModuleModule ] : [],
+>>>>>>> upstream/master
+  ],
+  /**
+   * Expose our Services and Providers into Angular's dependency injection.
+   */
+  providers: [
+    environment.ENV_PROVIDERS,
+    APP_PROVIDERS
+  ]
+})
+export class AppModule {}

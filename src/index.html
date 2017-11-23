@@ -6,12 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><%= htmlWebpackPlugin.options.title %></title>
   <meta name="description" content="<%= htmlWebpackPlugin.options.title %>">
-  <!-- iOS App -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Dash">
-  <meta name = "viewport" content = "width=device-width, height=device-height,
-       initial-scale=1.0, maximum-scale=1.0, user-scalable = no">
   <!-- base url -->
   <base href="<%= htmlWebpackPlugin.options.metadata.baseUrl %>">
   <% if (webpackConfig.htmlElements.headTags) { %>
@@ -27,19 +21,25 @@
   <script src="/webpack-dev-server.js"></script>
   <% } %>
 
+  <!-- Async Google Analytics: change UA-71073175-1 to be your site's ID -->
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-71073175-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+  <!-- End Google Analytics -->
+
   <!-- CSS will be injected by webpack here -->
   <!-- Preload link tags will be injected by webpack here -->
 
 </head>
 
-<body class="bg-darkCobalt">
+<body>
 
   <app>
+    Loading...
   </app>
-  <!-- Content loader -->
-  <div id="preloader">
-    <div></div>
-  </div>
 
   <!-- Scripts will be injected by webpack here -->
 </body>

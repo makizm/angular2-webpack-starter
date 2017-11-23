@@ -1,18 +1,11 @@
-/*
+/**
  * Angular 2 decorators and services
  */
-import {
-  Component,
-  OnInit,
-  ViewEncapsulation
-} from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { environment } from 'environments/environment';
 import { AppState } from './app.service';
 
-import { Router } from '@angular/router';
-
-import { BaThemeSpinner, BaThemePreloader } from './shared/services';
-
-/*
+/**
  * App Component
  * Top Level Component
  */
@@ -23,39 +16,67 @@ import { BaThemeSpinner, BaThemePreloader } from './shared/services';
     './app.component.css'
   ],
   template: `
+    <nav>
+      <a [routerLink]=" ['./'] "
+        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+        Index
+      </a>
+      <a [routerLink]=" ['./home'] "
+        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+        Home
+      </a>
+      <a [routerLink]=" ['./detail'] "
+        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+        Detail
+      </a>
+      <a [routerLink]=" ['./barrel'] "
+        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+        Barrel
+      </a>
+      <a [routerLink]=" ['./about'] "
+        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+        About
+      </a>
+      <a *ngIf="showDevModule" [routerLink]=" ['./dev-module'] "
+         routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+        DevModule
+      </a>
+    </nav>
+
     <main>
-      <div class="tile-area no-padding">
-        <div class="tile-container bg-darkCobalt">
-          <router-outlet></router-outlet>
-        </div>
-      </div>
+      <router-outlet></router-outlet>
     </main>
+
+    <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
+
+    <footer>
+      <span>Angular Starter by <a [href]="twitter">@gdi2290</a></span>
+      <div>
+        <a [href]="url">
+          <img [src]="tipe" width="25%">
+        </a>
+      </div>
+    </footer>
   `
 })
 export class AppComponent implements OnInit {
-  public angularclassLogo = 'assets/img/angularclass-avatar.png';
-  public name = 'Angular 2 Webpack Starter';
-  public url = 'https://twitter.com/AngularClass';
+  public name = 'Angular Starter';
+  public tipe = 'assets/img/tipe.png';
+  public twitter = 'https://twitter.com/gdi2290';
+  public url = 'https://tipe.io';
+  public showDevModule: boolean = environment.showDevModule;
 
   constructor(
-    public appState: AppState,
-    private _spinner: BaThemeSpinner
+    public appState: AppState
   ) {}
 
   public ngOnInit() {
     console.log('Initial App State', this.appState.state);
   }
 
-  public ngAfterViewInit(): void {
-    // hide spinner once all loaders are completed
-    BaThemePreloader.load().then((values) => {
-      this._spinner.hide();
-    });
-  }
-
 }
 
-/*
+/**
  * Please review the https://github.com/AngularClass/angular2-examples/ repo for
  * more angular app examples that you may copy/paste
  * (The examples may not be updated as quickly. Please open an issue on github for us to update it)
