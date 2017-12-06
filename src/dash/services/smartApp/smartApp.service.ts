@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Http, Response } from '@angular/http';
-import { CookieService } from 'angular2-cookie/core';
+import { CookieService } from 'ngx-cookie-service';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -15,23 +15,27 @@ export class SmartApp {
     private key:string;
 
     constructor(
-                //private _cookieService: CookieService,
+                private _cookieService: CookieService,
                 private _router: Router,
                 private _http: Http) {
-        // Check for cookie
-        // if(!this._cookieService.get(this.cookieName)) {
-        //     // Redirect to login page when no token cookie present
-        //     this._router.navigate(['/error', {id: 201}]);
-        // } else {
-        //     // Get token cookie and decode it
-        //     let data = atob(this._cookieService.get(this.cookieName));
-        //     // Parse token data into key and url
-        //     [ this.key, this.url ] = data.split(';');
-        // }
     }
 
     public testGet() {
         return BASE_URL;
+    }
+
+    public authCheck() {
+        // Check for cookie
+        if(!this._cookieService.get(this.cookieName)) {
+            // Redirect to login page when no token cookie present
+            this._router.navigate(['/error', {id: 201}]);
+            console.log('No cookie...')
+        } else {
+            // Get token cookie and decode it
+            let data = atob(this._cookieService.get(this.cookieName));
+            // Parse token data into key and url
+            [ this.key, this.url ] = data.split(';');
+        }
     }
 
     public getDevices(type): Promise<any>{
@@ -41,6 +45,12 @@ export class SmartApp {
                 .then(this.extractData)
                 .catch(this.handleError);
         }
+    }
+
+    public getDeviceCommands() {
+        let url = BASE_URL + '/switches/'
+        return this._http.get(BASE_URL + '/')
+            .map(res => res.json())
     }
 
     public toggleSwitch(item) {

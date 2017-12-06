@@ -1,15 +1,16 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import 'rxjs/add/operator/map';
-import {Observable} from 'rxjs/Rx';
+import { Observable } from 'rxjs/Rx';
 import { IntervalObservable } from 'rxjs/observable/IntervalObservable';
-import { mWeatherProvider } from '../../services';
+import { mWeatherProvider } from './mWeather.service';
 
 const CHECK_WEATHER_INTERVAL = 5;  // in minutes
 
 @Component({
     selector: 'weather-widget',
     templateUrl: 'mWeather.html',
-    styleUrls: ['mWeather.scss']
+    styleUrls: ['mWeather.scss'],
+    providers: [mWeatherProvider]
 })
 
 export class mWeatherComponent implements OnInit {
@@ -31,7 +32,7 @@ export class mWeatherComponent implements OnInit {
         this._getWeather();
         //this._weather.getByCity().then(this.getWeather);
         IntervalObservable.create(CHECK_WEATHER_INTERVAL * 60000).subscribe(data=> {
-            console.log('check');
+            console.log('Getting weather update...');
             this._getWeather();
         });
     }

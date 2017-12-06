@@ -4,7 +4,7 @@ import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
 
-const WEATHER_BASE_URI = 'http://api.openweathermap.org/data/2.5';
+const WEATHER_BASE_URI = 'https://api.openweathermap.org/data/2.5';
 const WEATHER_APPID = 'ff0d2f4770db74d57f60f3fbe9e53f9d';
 const WEATHER_TEMP_UNITS = 'imperial';  // imperial, metric, deault kelvin
 

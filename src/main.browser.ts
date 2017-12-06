@@ -8,14 +8,15 @@ import { environment } from 'environments/environment';
  * App Module
  * our top level module that holds all of our components
  */
-import { AppModule } from './app';
+//import { AppModule } from './app';
+import { DashModule } from './dash';
 
 /**
  * Bootstrap our Angular app with a top level NgModule
  */
 export function main(): Promise<any> {
   return platformBrowserDynamic()
-    .bootstrapModule(AppModule)
+    .bootstrapModule(DashModule)
     .then(environment.decorateModuleRef)
     .catch((err) => console.error(err));
 }

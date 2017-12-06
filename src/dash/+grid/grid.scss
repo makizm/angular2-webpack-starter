@@ -1,0 +1,42 @@
+// Variabes
+$device-online: #60a917;
+$device-offline: #CE352C;
+$device-nostatus: #ffc194;
+
+// Shared
+.dash-battery {
+    font-size: 2em!important;
+    width: 30px!important;
+    height: 20px!important;
+    position: initial!important;
+}
+.dash-device-offline {
+    background-color: $device-offline !important;
+}
+
+.dash-device-online {
+    background-color: $device-online !important;
+}
+
+// Switches
+.dash-switch-on {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fa6800, 0 0 70px #fa6800, 0 0 80px #fa6800, 0 0 100px #fa6800, 0 0 150px #fa6800 !important;
+    // text-shadow: 0 0 25px rgba(255,165,0,.7) !important;
+}
+
+.dash-switch-off {
+    text-shadow: none;
+}
+
+// Sensors
+.dash-sensor {
+    background-color: #ffc194 !important;
+}
+
+.dash-sensor-offline {
+    background-color: #CE352C!important;
+}
+
+.dash-sensor-online {
+    background-color: #60a917!important;
+}
